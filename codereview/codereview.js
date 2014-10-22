@@ -11,6 +11,14 @@
 		};
 	});
 
+	codeReviewApp.factory("barService", ["$http", function ($http) {
+		return {
+			getAllBars: function () {
+				return $http.get("/bars");
+			}
+		}
+	}]);
+
 	codeReviewApp.controller('fooCtrl', function ($scope, fooService) {
 		$scope.foos = [];
 
@@ -19,4 +27,13 @@
 			$scope.$digest();
 		});
 	});
+
+	codeReviewApp.controller("barCtrl", ["$scope", "barService", function (scope, bars) {
+		scope.bars = [];
+
+		bars.getAllBars().then(function (response) {
+			scope.bars = response.data.bars;
+			scope.$digest();
+		});
+	}]);
 }());
