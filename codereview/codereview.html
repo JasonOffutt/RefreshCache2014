@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Code review example</title>
+	<link href="path/to/bootstrap.css" rel="stylesheet" />
+	<link href="codereview.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container" ng-app="codeReviewApp" id="ng-app">
+		<div class="row">
+			<div class="col-med-12" ng-controller="fooCtrl">
+				<ul id="foos">
+					<li ng-repeat="foo in foos">
+						<span>{{foo.name}}</span>
+						<a href="mailto:{{foo.email}}">{{foo.email}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="path/to/angular.js"></script>
+</body>
+</html>
